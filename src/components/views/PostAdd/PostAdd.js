@@ -20,7 +20,7 @@ const Component = ({ className }) => {
 
   return (
     <div className={clsx(className, styles.root)}>
-      <Container maxWidth="lg">
+      <Container  maxWidth="lg">
         <Form autoComplete="off" onSubmit={e => handleSubmit(e)}>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridTitle" >
