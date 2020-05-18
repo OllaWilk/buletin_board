@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Button from 'react-bootstrap/Button';
+
 import clsx from 'clsx';
 
 // import { connect } from 'react-redux';
@@ -8,10 +10,12 @@ import clsx from 'clsx';
 
 import styles from './NotFound.module.scss';
 
-const Component = ({className, children}) => (
+const Component = ({className}) => (
   <div className={clsx(className, styles.root)}>
     <h2>NotFound</h2>
-    {children}
+    <Button variant="danger" href="/">
+      Go back to the homepage
+    </Button>
   </div>
 );
 
