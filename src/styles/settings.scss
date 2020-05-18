@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:700|Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,400&family=Roboto:wght@400;700&display=swap');
+
 
 $base-size: 12px;
 $radius: 5px;
@@ -10,18 +11,17 @@ $color-intensive_blue: #209dda;
 $color-intesive_red: #ee4b46;
 $color-dark_red: #cf5a48;
 $color-intesive_darkBlue: #072d3c;
-$color-white: #ffffff;
-$color-black: #000000;
-$color-green: #69c831;
+$color-light: #ffffff;
+$color-dark: #000000;
+$color-accept: #69c831;
 
 // FONTS
-$font-header: 'Montserrat', sans-serif;
-$font-text: 'Source Sans Pro', sans-serif;
-
+$font-header: 'Roboto', sans-serif;
+$font-text: 'Open Sans', sans-serif;
 
 // VARIABLES USING IN ANOTHER FILES
 
-$background-color: $color-white;
+$background-color: $color-light;
 
 /*HEADER*/
 
