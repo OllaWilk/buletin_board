@@ -3,20 +3,32 @@
 .root {
 
     .button {
-        margin: 0 auto;
         display: flex;
         justify-content: center;
     }
 
-    .cardImage {
-        height: 400px;
-        object-fit: cover;
-    }
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 
-    .link {
-        color: $color-dark_red;
-        &:hover {
+        .el{
+            flex: 0 0 33%;
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .cardImage {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .link {
             color: $color-dark_red;
+            &:hover {
+                color: $color-dark_red;
+            }
         }
     }
+
 }

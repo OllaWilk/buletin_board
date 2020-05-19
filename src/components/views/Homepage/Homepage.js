@@ -12,40 +12,46 @@ import Col from 'react-bootstrap/Col';
 
 import { connect } from 'react-redux';
 import { getAll } from '../../../redux/postsRedux';
+import { getUser } from '../../../redux/userRedux.js';
 
 import styles from './Homepage.module.scss';
 
-const Component = ({className, posts }) => (
+const Component = ({className, posts, user }) => (
   <div className={clsx(className, styles.root)}>
-    <Button  className={styles.button} href="/post/add" variant="success">+ write new ad</Button>
-    <Toolbar />
-    <CardDeck className={styles.cards}>
-      <Col lg={12}>
-        {posts.map(el => (
-          <Card   className={styles.el} key= {el.id} >
-            <Card.Img className={styles.cardImage} src={el.image} variant="top" />
-            <Card.Body>
-              <Card.Title><a href={`/post/edit/:${el.id}`}>{el.title}</a></Card.Title>
-              <Card.Text>
-                {el.description}
-              </Card.Text>
-            </Card.Body>
+    {user.authenticated ? (
+      <Button  className={styles.button} href="/post/add" variant="success">+ write new ad</Button>
+    ) : ''}
 
-            <ListGroup className="list-group-flush">
-              <ListGroup.Item >
-                {el.price} $
-              </ListGroup.Item>
-              <ListGroup.Item >
-                <i className="fas fa-map-marker-alt"></i>
-                {' '} Location: {el.location}
-              </ListGroup.Item>
-            </ListGroup>
+    <CardDeck >
+      <Col>
+        <div className={styles.cards}>
+          {posts.map(el => (
+            <Card   className={styles.el} key= {el.id} >
+              <Card.Img className={styles.cardImage} src={el.image} variant="top" />
+              <Card.Body>
+                <Card.Title><a href={`/post/edit/:${el.id}`}>{el.title}</a></Card.Title>
+                <Card.Text>
+                  {el.description}
+                </Card.Text>
+              </Card.Body>
 
-            <Card.Footer>
-              <small className="text-muted">Published: {el.publishDate}</small>
-            </Card.Footer>
-          </Card>
-        ))}
+              <ListGroup className="list-group-flush">
+                <ListGroup.Item >
+                  {el.price} $
+                </ListGroup.Item>
+                <ListGroup.Item >
+                  <i className="fas fa-map-marker-alt"></i>
+                  {' '} Location: {el.location}
+                </ListGroup.Item>
+              </ListGroup>
+
+              <Card.Footer>
+                <small className="text-muted">Published: {el.publishDate}</small>
+              </Card.Footer>
+            </Card>
+
+          ))}
+        </div>
       </Col>
     </CardDeck>
     <Toolbar />
@@ -56,10 +62,12 @@ Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   posts: PropTypes.array,
+  user: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
   posts: getAll(state),
+  user: getUser(state),
 });
 
 // const mapDispatchToProps = dispatch => ({

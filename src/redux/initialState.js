@@ -99,6 +99,7 @@ export const initialState = {
   },
   user: {
     rights: '',
-    authenticated: false,
+    //authenticated: false,
+    authenticated: true,
   },
 };
