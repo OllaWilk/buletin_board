@@ -15,10 +15,9 @@ import { getAll } from '../../../redux/postsRedux';
 
 import styles from './Homepage.module.scss';
 
-const Component = ({className, children, posts }) => (
+const Component = ({className, posts }) => (
   <div className={clsx(className, styles.root)}>
     <Button  className={styles.button} href="/post/add" variant="success">+ write new ad</Button>
-    {children}
     <Toolbar />
     <CardDeck className={styles.cards}>
       <Col lg={12}>

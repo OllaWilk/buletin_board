@@ -12,4 +12,11 @@
         height: 400px;
         object-fit: cover;
     }
+
+    .link {
+        color: $color-dark_red;
+        &:hover {
+            color: $color-dark_red;
+        }
+    }
 }
