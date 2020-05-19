@@ -46,7 +46,7 @@ const Component = ({className, posts, user }) => (
               </ListGroup>
 
               <Card.Footer>
-                <small className="text-muted">Published: {el.publishDate}</small>
+                <small className="text-muted">Published: {el.date}</small>
               </Card.Footer>
             </Card>
 

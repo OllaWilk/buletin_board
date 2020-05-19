@@ -7,6 +7,7 @@ import clsx from 'clsx';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import Container from '@material-ui/core/Container';
+
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
@@ -34,23 +35,23 @@ const Component = ({ className }) => {
             <Form.Control required as="textarea" rows="3" placeholder="Describe the object or matter of your post" />
           </Form.Group>
 
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridPrice">
+          <Form.Row >
+            <Form.Group as={Col} sm={12} md={4} controlId="formGridPrice">
               <Form.Label>Price</Form.Label>
               <Form.Control type="text" placeholder="Type price, for free item type 0" />
             </Form.Group>
-            <Form.Group as={Col} controlId="formGridLocation">
+            <Form.Group as={Col} sm={12} md={4} controlId="formGridLocation">
               <Form.Label>Location</Form.Label>
               <Form.Control required type="text" placeholder="Enter your location"/>
             </Form.Group>
-            <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Group as={Col} sm={12} md={4}scontrolId="formGridEmail">
               <Form.Label>E-mail</Form.Label>
               <Form.Control required type="email" placeholder="name@example.com" />
             </Form.Group>
           </Form.Row>
 
           <Form.Row>
-            <Form.Group as={Col} controlId="postForm">
+            <Form.Group as={Col} sm={12} md={4} controlId="postForm">
               <Form.Label>What is state of item you are selling</Form.Label>
               <Form.Control as="select">
                 <option>new</option>
