@@ -26,10 +26,10 @@ const Component = ({className, posts, user }) => (
       <Col>
         <div className={styles.cards}>
           {posts.map(el => (
-            <Card   className={styles.el} key= {el.id} >
+            <Card {...el} className={styles.el} key= {el.id} >
               <Card.Img className={styles.cardImage} src={el.image} variant="top" />
               <Card.Body>
-                <Card.Title><a href={`/post/edit/:${el.id}`}>{el.title}</a></Card.Title>
+                <Card.Title><a className={styles.titleLink} href={`/post/:${el.id}`}>{el.title}</a></Card.Title>
                 <Card.Text>
                   {el.description}
                 </Card.Text>
