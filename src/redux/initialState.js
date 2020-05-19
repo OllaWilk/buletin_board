@@ -14,6 +14,7 @@ export const initialState = {
         shipping: 'after payment',
         image: 'https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
         price: 0.99,
+        userId: '1',
       },
       {
         id: '2',
@@ -28,20 +29,22 @@ export const initialState = {
         shipping: 'only cash on delivery',
         image: 'https://images.pexels.com/photos/4012470/pexels-photo-4012470.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
         price: 200,
+        userId: '2',
       },
       {
         id: '3',
         title: 'red shoes',
-        description: 'Open toe shoes. Ladies strap open toe shoes. Colour: Black. Size: 9. Condition: used. Price: £5. Delivery:£3',
+        description: 'Shoes. Ladies strap open toe shoes. Colour: Red. Size: 9. Price: £5. Delivery:£3',
         publishDate: '10.05.2020',
         updateDate: '12.05.2020',
-        mail: 'amanda@example.com',
+        mail: 'medical@example.com',
         status: 'published',
         sellingState: 'new',
         location: 'London',
         shipping: 'after payment',
         image: 'https://images.pexels.com/photos/336372/pexels-photo-336372.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
         price: 5,
+        userId: '1',
       },
       {
         id: '4',
@@ -56,6 +59,7 @@ export const initialState = {
         shipping: 'all options possible',
         image: 'https://images.pexels.com/photos/725998/pexels-photo-725998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
         price: 13,
+        userId: '3',
       },
       {
         id: '5',
@@ -70,6 +74,7 @@ export const initialState = {
         shipping: '',
         image: 'https://images.pexels.com/photos/4038337/pexels-photo-4038337.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
         price: 0,
+        userId: '4',
       },
       {
         id: '6',
@@ -84,6 +89,7 @@ export const initialState = {
         shipping: 'after payment',
         image: 'https://images.pexels.com/photos/3754310/pexels-photo-3754310.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
         price: 40,
+        userId: '5',
       },
     ],
     loading: {
