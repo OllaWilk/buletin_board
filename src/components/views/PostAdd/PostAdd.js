@@ -29,8 +29,8 @@ const Component = ({ className }) => {
             </Form.Group>
           </Form.Row>
           <Form.Group controlId="postContent">
-            <Form.Label>Describe the object or matter of your post</Form.Label>
-            <Form.Control required as="textarea" rows="3"  />
+            <Form.Label>Description</Form.Label>
+            <Form.Control required as="textarea" rows="3" placeholder="Describe the object or matter of your post" />
           </Form.Group>
 
           <Form.Row>
