@@ -22,6 +22,7 @@ const Component = ({ className }) => {
     <div className={clsx(className, styles.root)}>
       <Container  maxWidth="lg">
         <Form autoComplete="off" onSubmit={e => handleSubmit(e)}>
+
           <Form.Row>
             <Form.Group as={Col} controlId="formGridTitle" >
               <Form.Label>Title</Form.Label>
@@ -36,20 +37,39 @@ const Component = ({ className }) => {
           <Form.Row>
             <Form.Group as={Col} controlId="formGridPrice">
               <Form.Label>Price</Form.Label>
-              <Form.Control type="text" placeholder="$" />
+              <Form.Control type="text" placeholder="Type price, for free item type 0" />
             </Form.Group>
-
             <Form.Group as={Col} controlId="formGridLocation">
               <Form.Label>Location</Form.Label>
               <Form.Control required type="text" placeholder="Enter your location"/>
             </Form.Group>
-
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label>E-mail</Form.Label>
               <Form.Control required type="email" placeholder="name@example.com" />
             </Form.Group>
           </Form.Row>
 
+          <Form.Row>
+            <Form.Group as={Col} controlId="postForm">
+              <Form.Label>What is state of item you are selling</Form.Label>
+              <Form.Control as="select">
+                <option>new</option>
+                <option>used</option>
+                <option>broken</option>
+                <option>in parts</option>
+                <option>other</option>
+              </Form.Control>
+            </Form.Group>
+            <Form.Group as={Col} controlId="postDelivery">
+              <Form.Label>Shipping</Form.Label>
+              <Form.Control as="select">
+                <option>Only pickup</option>
+                <option>After payment</option>
+                <option>Only Cash on delivery</option>
+                <option>All options possible</option>
+              </Form.Control>
+            </Form.Group>
+          </Form.Row>
           <Form.Group id="formGridCheckbox">
             <Form.File
               id="custom-file"
