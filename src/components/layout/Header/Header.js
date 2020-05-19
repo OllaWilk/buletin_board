@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '@material-ui/core/Button';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
 
 import clsx from 'clsx';
@@ -13,27 +12,29 @@ import clsx from 'clsx';
 
 import styles from './Header.module.scss';
 
-const Component = ({ className, children }) => (
+const Component = ({ className }) => (
   <div className={clsx(className, styles.root)}>
-    <AppBar position="static">
-      <Toolbar>
-        <Button href="https://google.com" variant="contained" color="primary" size="large">
+    <Navbar bg="dark" variant="dark" sticky="top">
+      <Navbar.Brand href="#home">Bulletin Board</Navbar.Brand>
+      <Nav className="mr-auto">
+        <Nav.Link href="https://google.com">
+          <i className="fas fa-user-alt"></i>{' '}
           Login with Google
-        </Button>
-        <Button href="/" variant="contained" color="primary" size="large">
-          My Ads
-        </Button>
-        <Button href="/" variant="contained" color="primary" size="large">
+        </Nav.Link>
+        <Nav.Link href="/">
+          <i className="far fa-address-card"></i>{' '}
+          My ads
+        </Nav.Link>
+        <Nav.Link href="/">
+          <i className="fas fa-sign-out-alt"></i>{' '}
           Logout
-        </Button>
-        {children}
-      </Toolbar>
-    </AppBar>
-  </div>
+        </Nav.Link>
+      </Nav>
+    </Navbar>
+  </div >
 );
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
 };
 
