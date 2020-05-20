@@ -65,9 +65,7 @@ const Component = ({ className }) => {
               <Form.Label>Shipping</Form.Label>
               <Form.Control as="select">
                 <option>Only pickup</option>
-                <option>After payment</option>
-                <option>Only Cash on delivery</option>
-                <option>All options possible</option>
+                <option>Delivery</option>
               </Form.Control>
             </Form.Group>
           </Form.Row>
