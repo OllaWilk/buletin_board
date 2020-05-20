@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
 
+import { connect } from 'react-redux';
+import { getAll } from '../../../redux/postsRedux';
+import { getUser } from '../../../redux/userRedux.js';
+
+import styles from './Homepage.module.scss';
+
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -10,11 +16,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Col from 'react-bootstrap/Col';
 
-import { connect } from 'react-redux';
-import { getAll } from '../../../redux/postsRedux';
-import { getUser } from '../../../redux/userRedux.js';
-
-import styles from './Homepage.module.scss';
 
 const Component = ({className, posts, user }) => (
   <div className={clsx(className, styles.root)}>
@@ -29,7 +30,7 @@ const Component = ({className, posts, user }) => (
             <Card {...el} className={styles.el} key= {el.id} >
               <Card.Img className={styles.cardImage} src={el.image} variant="top" />
               <Card.Body>
-                <Card.Title><a className={styles.titleLink} href={`/post/:${el.id}`}>{el.title}</a></Card.Title>
+                <Card.Title className={styles.titleLink} ><a  href={`/post/${el.id}`}>{el.title}</a></Card.Title>
                 <Card.Text>
                   {el.description}
                 </Card.Text>
@@ -37,7 +38,8 @@ const Component = ({className, posts, user }) => (
 
               <ListGroup className="list-group-flush">
                 <ListGroup.Item >
-                  {el.price} $
+                  <i className="fas fa-money-bill-wave"></i>
+                  {' '} Price: {el.price} $
                 </ListGroup.Item>
                 <ListGroup.Item >
                   <i className="fas fa-map-marker-alt"></i>

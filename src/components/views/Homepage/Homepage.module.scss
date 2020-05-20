@@ -5,6 +5,8 @@
     .button {
         display: flex;
         justify-content: center;
+        background-color: $color-dark_red;
+        border: $color-dark_red;
     }
 
     .cards {
@@ -31,7 +33,12 @@
         }
 
         .titleLink {
-            color: $color-accept;
+            a {
+                color:  $color-dark_red;
+            }
+            &::first-letter{
+                text-transform: uppercase;
+            }
         }
     }
 }
