@@ -68,6 +68,7 @@ const Component = ({className, post, user}) => (
       </Card.Footer>
     </Card>
     {user.authenticated ? (<Button className={styles.button} href={`/post/${post.id}/edit`} variant="dark">Edit post</Button>) : ''}
+    <Button color="secondary" href="/" variant="contained" >Return</Button>
   </div>
 );
 
