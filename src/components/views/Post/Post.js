@@ -67,7 +67,7 @@ const Component = ({className, post, user}) => (
         </div>
       </Card.Footer>
     </Card>
-    {user.authenticated ? (<Button className={styles.button} href={`/post/edit/${post.id}`} variant="dark">Edit post</Button>) : ''}
+    {user.authenticated ? (<Button className={styles.button} href={`/post/${post.id}/edit`} variant="dark">Edit post</Button>) : ''}
   </div>
 );
 
