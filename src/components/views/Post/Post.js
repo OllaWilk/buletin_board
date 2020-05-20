@@ -12,6 +12,18 @@ import styles from './Post.module.scss';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
+//import { GoogleMap, withScriptjs, withGoogleMap } from 'google-maps-react';
+
+// function Map () {
+//   return (
+//     <GoogleMap
+//       defaultZoom={10}
+//       defaultCenter={{ lat: 12, lng: 12 }}
+//     />
+//   );
+// }
+
+// const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 const Component = ({className, post, user}) => (
   <div className={clsx(className, styles.root)}>
@@ -41,9 +53,11 @@ const Component = ({className, post, user}) => (
         <ListGroup.Item >
           <i className="fas fa-map-marker-alt">{' '} Location:</i>
           {' '}{post.location}
+          {/*
           <div className={styles.map} >
-
+            <WrappedMap />
           </div>
+          */}
         </ListGroup.Item>
       </ListGroup>
       <Card.Footer>
