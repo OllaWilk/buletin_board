@@ -60,8 +60,11 @@ const Component = ({className, post, user}) => (
           */}
         </ListGroup.Item>
       </ListGroup>
-      <Card.Footer>
-        <small className="text-muted">Published: { post.date }</small>
+      <Card.Footer >
+        <div className={styles.footer}>
+          <small  className="text-muted">Published: { post.date }</small>
+          <small className="text-muted">Last update: { post.updateDate }</small>
+        </div>
       </Card.Footer>
     </Card>
     {user.authenticated ? (<Button className={styles.button} href={`/post/edit/${post.id}`} variant="dark">Edit post</Button>) : ''}
