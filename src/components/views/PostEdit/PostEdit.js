@@ -22,12 +22,12 @@ const Component = ({className, post, user}) => (
       <Form.Row>
         <Form.Group as={Col} controlId="formGridTitle" >
           <Form.Label>Title</Form.Label>
-          <Form.Control defaultValue={post.title} required type="text"/>
+          <Form.Control defaultValue={post.title} required type="text" minLength="10" />
         </Form.Group>
       </Form.Row>
       <Form.Group controlId="postContent">
         <Form.Label>Description</Form.Label>
-        <Form.Control required as="textarea" rows="3" defaultValue={post.description} />
+        <Form.Control required as="textarea" rows="3" defaultValue={post.description} minLength="20" />
       </Form.Group>
 
       <Form.Row >

@@ -46,12 +46,12 @@ class Component extends React.Component {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridTitle" >
                 <Form.Label>Title</Form.Label>
-                <Form.Control type="text" placeholder="use catching words"  required />
+                <Form.Control type="text" placeholder="use catching words" minLength="10" required />
               </Form.Group>
             </Form.Row>
             <Form.Group controlId="postContent">
               <Form.Label>Description</Form.Label>
-              <Form.Control required as="textarea" rows="3" placeholder="Describe the object or matter of your post" />
+              <Form.Control minLength="20" required as="textarea" rows="3" placeholder="Describe the object or matter of your post" />
             </Form.Group>
 
             <Form.Row >
