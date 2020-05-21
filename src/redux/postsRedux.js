@@ -26,6 +26,8 @@ export const addPost = payload => ({ payload, type: ADD_POST });
 
 /* reducer */
 export const reducer = (statePart = [], action = {}) => {
+  console.log('statePart', statePart);
+  console.log('action', action);
   switch (action.type) {
     case FETCH_START: {
       return {

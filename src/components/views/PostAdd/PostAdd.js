@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import styles from './PostAdd.module.scss';
 import clsx from 'clsx';
 
+import uniqid from 'uniqid';
+
 import { connect } from 'react-redux';
-import { addPost } from '../../../redux/postsRedux';
+import {  addPost } from '../../../redux/postsRedux';
 
 
 import Form from 'react-bootstrap/Form';
@@ -25,6 +27,7 @@ class Component extends React.Component {
       image: '',
       price: '',
     },
+    isError: false,
   }
 
   static propTypes = {
@@ -40,8 +43,24 @@ class Component extends React.Component {
   };
 
   submitPost = e => {
+    const { postData } = this.state;
+    const { addPost } = this.props;
     e.preventDefault();
+
+    if (postData.title && postData.description && postData.mail) {
+      const time = new Date();
+      const displayTime = `${time.getDate()}.${time.getMonth()}.${time.getFullYear()},${time.getHours()}:${time.getMinutes()}`;
+      const payload = {
+        ...postData,
+        id:uniqid(10),
+        published: displayTime,
+        updated: displayTime,
+      };
+      addPost(payload);
+    } else this.setState({ isError: true });
+
   };
+
 
   render() {
     const { className } = this.props;
