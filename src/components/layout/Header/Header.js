@@ -6,11 +6,7 @@ import { getUser } from '../../../redux/userRedux.js';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
-
 import clsx from 'clsx';
-
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './Header.module.scss';
 

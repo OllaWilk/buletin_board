@@ -14,9 +14,11 @@ const mockProps = {
     shipping: 'After payment',
     image: 'https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
     price: 0.99,
+    userId: '1a',
   },
   user: {
     authenticated: true,
+    id: '1a',
   },
 };
 
