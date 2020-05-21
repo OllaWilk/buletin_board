@@ -12,75 +12,84 @@ import styles from './Post.module.scss';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
-//import { GoogleMap, withScriptjs, withGoogleMap } from 'google-maps-react';
+import { GoogleMap, withScriptjs, withGoogleMap } from 'google-maps-react';
 
-// function Map () {
-//   return (
-//     <GoogleMap
-//       defaultZoom={10}
-//       defaultCenter={{ lat: 12, lng: 12 }}
-//     />
-//   );
-// }
+class Component extends React.Component {
 
-// const WrappedMap = withScriptjs(withGoogleMap(Map));
+  static propTypes = {
+    className: PropTypes.string,
+    post: PropTypes.object,
+    user: PropTypes.object,
+  };
 
-const Component = ({className, post, user}) => (
-  <div className={clsx(className, styles.root)}>
-    <Card  className={styles.el} key= {post.id} >
-      <Card.Img className={styles.cardImage} src={post.image} variant="top" />
-      <Card.Body>
-        <Card.Title className={styles.title} >{post.title}</Card.Title>
-        <Card.Text>
-          {post.description}
-          <p> State: {post.sellingState}</p>
-        </Card.Text>
-      </Card.Body>
+  render() {
+    const { className, post, user } = this.props;
 
-      <ListGroup className="list-group-flush" >
-        <ListGroup.Item  >
-          <i className="fas fa-money-bill-wave">{' '} Price:</i>
-          {' '}{post.price} $
-        </ListGroup.Item>
-        <ListGroup.Item >
-          <i className="fas fa-dolly">{' '} delivery:</i>
-          {' '}{post.shipping}
-        </ListGroup.Item>
-        <ListGroup.Item >
-          <i className="fas fa-envelope">{' '} mail:</i>
-          {' '}{post.mail}
-        </ListGroup.Item>
-        <ListGroup.Item >
-          <i className="fas fa-map-marker-alt">{' '} Location:</i>
-          {' '}{post.location}
-          {/*
-          <div className={styles.map} >
-            <WrappedMap />
-          </div>
-          */}
-        </ListGroup.Item>
-        <ListGroup.Item >
-          State: {post.status}
-        </ListGroup.Item>
-      </ListGroup>
+    return (
+      <div className={clsx(className, styles.root)}>
+        <Card  className={styles.el} key= {post.id} >
+          <Card.Img className={styles.cardImage} src={post.image} variant="top" />
+          <Card.Body>
+            <Card.Title className={styles.title} >{post.title}</Card.Title>
+            <Card.Text>
+              {post.description}
+              <p> State: {post.sellingState}</p>
+            </Card.Text>
+          </Card.Body>
 
-      <Card.Footer >
-        <div className={styles.footer}>
-          <small  className="text-muted">Published: { post.date }</small>
-          <small className="text-muted">Last update: { post.updateDate }</small>
-        </div>
-      </Card.Footer>
-    </Card>
-    {user.id === post.userId && user.authenticated ? (<Button className={styles.button} href={`/post/${post.id}/edit`} variant="dark">Edit post</Button>) : ''}
-    <Button color="secondary" href="/" variant="contained">Return</Button>
-  </div>
-);
+          <ListGroup className="list-group-flush" >
+            <ListGroup.Item  >
+              <i className="fas fa-money-bill-wave">{' '} Price:</i>
+              {' '}{post.price} $
+            </ListGroup.Item>
+            <ListGroup.Item >
+              <i className="fas fa-dolly">{' '} delivery:</i>
+              {' '}{post.shipping}
+            </ListGroup.Item>
+            <ListGroup.Item >
+              <i className="fas fa-envelope">{' '} mail:</i>
+              {' '}{post.mail}
+            </ListGroup.Item>
+            <ListGroup.Item >
+              <i className="fas fa-map-marker-alt">{' '} Location:</i>
+              {' '}{post.location}
 
-Component.propTypes = {
-  className: PropTypes.string,
-  post: PropTypes.object,
-  user: PropTypes.object,
-};
+              <div className={styles.map} >
+                {/*<WrappedMap >
+  function Map () {
+    return (
+      <GoogleMap
+        defaultZoom={10}
+        defaultCenter={{ lat: 12, lng: 12 }}
+      />
+    );
+  }
+
+  const WrappedMap = withScriptjs(withGoogleMap(Map));
+  */}
+              </div>
+
+            </ListGroup.Item>
+            <ListGroup.Item >
+            State: {post.status}
+            </ListGroup.Item>
+          </ListGroup>
+
+          <Card.Footer >
+            <div className={styles.footer}>
+              <small  className="text-muted">Published: { post.date }</small>
+              <small className="text-muted">Last update: { post.updateDate }</small>
+            </div>
+          </Card.Footer>
+        </Card>
+        {user.id === post.userId && user.authenticated ? (<Button className={styles.button} href={`/post/${post.id}/edit`} variant="dark">Edit post</Button>) : ''}
+        <Button color="secondary" href="/" variant="contained">Return</Button>
+      </div>
+    );
+  }
+}
+
+
 
 const mapStateToProps = (state, props) => ({
   post: getPostById(state, props.match.params.id),
