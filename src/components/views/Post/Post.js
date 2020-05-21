@@ -59,7 +59,11 @@ const Component = ({className, post, user}) => (
           </div>
           */}
         </ListGroup.Item>
+        <ListGroup.Item >
+          State: {post.status}
+        </ListGroup.Item>
       </ListGroup>
+
       <Card.Footer >
         <div className={styles.footer}>
           <small  className="text-muted">Published: { post.date }</small>

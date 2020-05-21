@@ -45,10 +45,14 @@ const Component = ({className, posts, user }) => (
                   <i className="fas fa-map-marker-alt"></i>
                   {' '} Location: {el.location}
                 </ListGroup.Item>
+                <ListGroup.Item >
+                  State: {el.status}
+                </ListGroup.Item>
               </ListGroup>
 
               <Card.Footer>
                 <small className="text-muted">Published: {el.date}</small>
+                <small className="text-muted"> {' '} Last update: { el.updateDate }</small>
               </Card.Footer>
             </Card>
 

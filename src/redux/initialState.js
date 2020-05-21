@@ -8,7 +8,7 @@ export const initialState = {
         date: '11.05.2020',
         updateDate: '15.05.2020',
         mail: 'medical@example.com',
-        status: 'Published',
+        status: 'Sold',
         sellingState: 'New',
         location: 'London, Wood Green',
         shipping: 'Delivery',
