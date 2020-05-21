@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import styles from './PostAdd.module.scss';
 import clsx from 'clsx';
 
-//import { connect } from 'react-redux';
-//import { addPost } from '../../../redux/postsRedux';
+import { connect } from 'react-redux';
+import { addPost } from '../../../redux/postsRedux';
 
-import Container from '@material-ui/core/Container';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -17,11 +16,8 @@ class Component extends React.Component {
 
   state = {
     postData: {
-      id: '',
       title: '',
       description: '',
-      date: '',
-      updateDate: '',
       mail: '',
       sellingState: '',
       location: '',
@@ -36,43 +32,125 @@ class Component extends React.Component {
     addPost: PropTypes.func,
   }
 
+  updateInputValue = ({ target }) => {
+    const { postData } = this.state;
+    const { value, name } = target;
+
+    this.setState({ postData: { ...postData, [name]: value } });
+  };
+
+  submitPost = e => {
+    e.preventDefault();
+  };
+
   render() {
     const { className } = this.props;
+    const { submitPost, updateInputValue } = this;
+    const { postData } = this.state;
+
     return (
       <div className={clsx(className, styles.root)}>
-        <Container  maxWidth="lg">
-          <Form autoComplete="off">
+        <div  maxWidth="lg">
+          <Form onSubmit={submitPost}>
 
             <Form.Row>
-              <Form.Group as={Col} controlId="formGridTitle" >
+              <Form.Group
+                as={Col}
+                controlId="formGridTitle"
+              >
                 <Form.Label>Title</Form.Label>
-                <Form.Control type="text" placeholder="use catching words" minLength="10" required />
+                <Form.Control
+                  name="title"
+                  type="text"
+                  onChange={updateInputValue}
+                  value={postData.title}
+                  placeholder="use catching words"
+                  minLength="10"
+                  required
+                />
               </Form.Group>
             </Form.Row>
+
             <Form.Group controlId="postContent">
               <Form.Label>Description</Form.Label>
-              <Form.Control minLength="20" required as="textarea" rows="3" placeholder="Describe the object or matter of your post" />
+              <Form.Control
+                name="description"
+                type="text"
+                onChange={updateInputValue}
+                value={postData.description}
+                placeholder="Describe the object or matter of your post"
+                minLength="20"
+                required
+                rows="3"
+              />
             </Form.Group>
 
             <Form.Row >
-              <Form.Group as={Col} sm={12} md={4} controlId="formGridPrice">
+              <Form.Group
+                as={Col}
+                sm={12}
+                md={4}
+                controlId="formGridPrice"
+              >
                 <Form.Label>Price</Form.Label>
-                <Form.Control type="text" placeholder="Type price, for free item type 0" />
+                <Form.Control
+                  name="price"
+                  type="text"
+                  onChange={updateInputValue}
+                  value={postData.price}
+                  placeholder="Type price, for free item type 0"
+                  required
+                />
               </Form.Group>
-              <Form.Group as={Col} sm={12} md={4} controlId="formGridLocation">
+              <Form.Group
+                as={Col}
+                sm={12}
+                md={4}
+                controlId="formGridLocation"
+              >
                 <Form.Label>Location</Form.Label>
-                <Form.Control required type="text" placeholder="Enter your location"/>
+                <Form.Control
+                  name="location"
+                  type="text"
+                  onChange={updateInputValue}
+                  value={postData.location}
+                  placeholder="Enter your location"
+                  required
+                />
               </Form.Group>
-              <Form.Group as={Col} sm={12} md={4}scontrolId="formGridEmail">
+              <Form.Group
+                as={Col}
+                sm={12}
+                md={4}
+                scontrolId="formGridEmail"
+              >
                 <Form.Label>E-mail</Form.Label>
-                <Form.Control required type="email" placeholder="name@example.com" />
+                <Form.Control
+                  name="mail"
+                  type="email"
+                  onChange={updateInputValue}
+                  value={postData.mail}
+                  placeholder="name@example.com"
+                  required
+                />
               </Form.Group>
             </Form.Row>
 
             <Form.Row>
-              <Form.Group as={Col} sm={12} md={4} controlId="postForm">
+              <Form.Group
+                as={Col}
+                sm={12}
+                md={4}
+                controlId="postForm"
+              >
                 <Form.Label>What is state of item you are selling</Form.Label>
-                <Form.Control as="select">
+                <Form.Control
+                  name="sellingState"
+                  onChange={updateInputValue}
+                  value={postData.sellingState}
+                  required
+                  as="select"
+                >
                   <option>new</option>
                   <option>used</option>
                   <option>broken</option>
@@ -80,25 +158,36 @@ class Component extends React.Component {
                   <option>other</option>
                 </Form.Control>
               </Form.Group>
-              <Form.Group as={Col} controlId="postDelivery">
+              <Form.Group
+                as={Col}
+                controlId="postDelivery"
+              >
                 <Form.Label>Shipping</Form.Label>
-                <Form.Control as="select">
+                <Form.Control
+                  name="shipping"
+                  onChange={updateInputValue}
+                  value={postData.shipping}
+                  required
+                  as="select"
+                >
                   <option>Only pickup</option>
                   <option>Delivery</option>
                 </Form.Control>
               </Form.Group>
             </Form.Row>
-            <Form.Group id="formGridCheckbox">
+            <Form.Group id="formGridImg">
               <Form.File
-                id="custom-file"
+                id="img"
                 label="add youre photo"
                 custom
+                onChange={updateInputValue}
+                value={postData.image}
               />
             </Form.Group>
             <Button type="submit" variant="success" >Save</Button>
             <Button color="secondary" href="/" variant="contained" >Return</Button>
           </Form>
-        </Container>
+        </div>
       </div>
     );
   }
@@ -110,14 +199,14 @@ class Component extends React.Component {
 //   someProp: reduxSelector(state),
 // });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = dispatch => ({
+  addPost: post => dispatch(addPost(post)),
+});
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(null, mapDispatchToProps)(Component);
 
 export {
-  Component as PostAdd,
-  // Container as PostAdd,
+  //Component as PostAdd,
+  Container as PostAdd,
   Component as PostAddComponent,
 };
