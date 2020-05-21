@@ -76,7 +76,7 @@ class Component extends React.Component {
     const { postData } = this.state;
 
     return ( 
-      user.id === post.userId && user.authenticated ? (
+      user.id === post.userId ? (
         <div className={clsx(className, styles.root)}>
           <h2>PostEdit</h2>
 
