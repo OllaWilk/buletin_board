@@ -6,13 +6,13 @@ import clsx from 'clsx';
 import { connect } from 'react-redux';
 import { getPostById } from '../../../redux/postsRedux.js';
 import { getUser } from '../../../redux/userRedux.js';
+import {GoogleMapComponent} from '../../common/GoogleMapComponent';
 
 import styles from './Post.module.scss';
 
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { GoogleMap, withScriptjs, withGoogleMap } from 'google-maps-react';
 
 class Component extends React.Component {
 
@@ -55,18 +55,8 @@ class Component extends React.Component {
               {' '}{post.location}
 
               <div className={styles.map} >
-                {/*<WrappedMap >
-  function Map () {
-    return (
-      <GoogleMap
-        defaultZoom={10}
-        defaultCenter={{ lat: 12, lng: 12 }}
-      />
-    );
-  }
-
-  const WrappedMap = withScriptjs(withGoogleMap(Map));
-  */}
+                <GoogleMapComponent />
+                {/*<WrappedMap >*/}
               </div>
 
             </ListGroup.Item>
