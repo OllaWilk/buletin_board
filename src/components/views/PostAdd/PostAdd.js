@@ -182,6 +182,7 @@ class Component extends React.Component {
                     required
                     as="select"
                   >
+                    <option>choose state</option>
                     <option>new</option>
                     <option>used</option>
                     <option>broken</option>
@@ -201,12 +202,15 @@ class Component extends React.Component {
                     required
                     as="select"
                   >
+                    <option>choose shipping</option>
                     <option>Only pickup</option>
                     <option>Delivery</option>
                   </Form.Control>
                 </Form.Group>
               </Form.Row>
-              <input name="image" onChange={setImage} type="file" />
+              <Form.Group id="formGridImg">
+                <input name="image" onChange={setImage} type="file" />
+              </Form.Group>
               <Button type="submit" variant="success" >Save</Button>
               <Button color="secondary" href="/" variant="contained" >Return</Button>
             </Form>
