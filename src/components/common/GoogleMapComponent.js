@@ -1,25 +1,17 @@
 import React from 'react';
-import { 
-  GoogleMap, 
-  withScriptjs, 
-  withGoogleMap,
-} from 'google-maps-react';
+// import {
+//   GoogleMap,
+//   useLoadScript,
+//   Marker,
+//   InfoWindow,
+// } from '@react-google-maps/api';
+// import { formatRelative } from 'date-fns';
 
-function Map() {
-  return (
-    <GoogleMap
-      defaultZoom={10}
-      defaultCenter={{ lat: 51, lng: 17 }}
-    />
-  );
-}
-
-const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export default function GoogleMapComponent() {
   return (
     <div>
-      <WrappedMap />
+       tu powinna być mapa
     </div>
   );
 }
