@@ -75,8 +75,8 @@ class Component extends React.Component {
     const { submitPost, updateInputValue, setImage } = this;
     const { postData } = this.state;
 
-    return(
-      user.id === post.userId ? (
+    return ( 
+      user.id === post.userId && user.authenticated ? (
         <div className={clsx(className, styles.root)}>
           <h2>PostEdit</h2>
 
@@ -197,6 +197,15 @@ class Component extends React.Component {
                 </Form.Control>
               </Form.Group>
             </Form.Row>
+            <Form.Group controlId="postStatus">
+              <Form.Label>Status</Form.Label>
+              <Form.Control 
+                name="status" 
+                defaultValue={post.status}
+                readOnly 
+                type="text" 
+              />
+            </Form.Group>
             <Form.Group id="formGridImg">
               <input name="image" onChange={setImage} type="file" />
             </Form.Group>

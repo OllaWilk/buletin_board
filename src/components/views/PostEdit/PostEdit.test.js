@@ -9,6 +9,7 @@ const mockProps = {
     description: 'Lorem ipsum. Lorem lorem.',
     date: '11.05.2020',
     mail: 'medical@example.com',
+    status: 'Published',
     sellingState: 'New',
     location: 'London',
     shipping: 'After payment',

@@ -64,6 +64,7 @@ class Component extends React.Component {
         id:randomID(10), //id
         date: displayTime,
         updateDate: displayTime,
+        status: 'Published',
         user: {
           id: user.id,
         },
@@ -208,6 +209,15 @@ class Component extends React.Component {
                   </Form.Control>
                 </Form.Group>
               </Form.Row>
+              <Form.Group controlId="postStatus">
+                <Form.Label>Status</Form.Label>
+                <Form.Control
+                  name="status"
+                  defaultValue="Draft"
+                  readOnly
+                  type="text"
+                />
+              </Form.Group>
               <Form.Group id="formGridImg">
                 <input name="image" onChange={setImage} type="file" />
               </Form.Group>
