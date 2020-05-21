@@ -45,6 +45,13 @@ class Component extends React.Component {
     this.setState({ postData: { ...postData, [name]: value } });
   };
 
+  setImage = ({ target }) => {
+    const { postData } = this.state;
+    const files = target.files;
+
+    if (files) this.setState({ postData: { ...postData, image: files[0] } });
+  }
+
   submitPost = async (e) => {
     const { postData } = this.state;
     //const { updatePost } = this.props;
@@ -65,7 +72,7 @@ class Component extends React.Component {
 
   render() {
     const { className, user, post } = this.props;
-    const { submitPost, updateInputValue } = this;
+    const { submitPost, updateInputValue, setImage } = this;
     const { postData } = this.state;
 
     return(
@@ -191,13 +198,7 @@ class Component extends React.Component {
               </Form.Group>
             </Form.Row>
             <Form.Group id="formGridImg">
-              <Form.File
-                id="image"
-                label=""
-                custom
-                onChange={updateInputValue}
-                value={postData.image}
-              />
+              <input name="image" onChange={setImage} type="file" />
             </Form.Group>
             <Button type="submit" variant="success" >Update post</Button>
             <Button color="secondary" href="/" variant="contained" >Return</Button>
