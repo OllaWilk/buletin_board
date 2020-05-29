@@ -43,7 +43,7 @@ export const loadPostsRequest = () => {
       dispatch(fetchSuccess(res.data));
       //dispatch(fetchEnd());
     } catch(e) {
-      dispatch(fetchError(e.message));
+      dispatch(fetchError(e.message || true));
     }
   };
 };

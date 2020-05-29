@@ -6,7 +6,7 @@ import { NotFound } from '../NotFound/NotFound';
 import randomID from '@ollawilk/randomid-generator';
 
 import { connect } from 'react-redux';
-import { addPost } from '../../../redux/postsRedux';
+import { addPostsRequest } from '../../../redux/postsRedux';
 import { getUser } from '../../../redux/userRedux.js';
 
 import Form from 'react-bootstrap/Form';
@@ -242,7 +242,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addPost: post => dispatch(addPost(post)),
+  addPost: post => dispatch(addPostsRequest(post)),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

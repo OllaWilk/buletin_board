@@ -5,7 +5,7 @@ import { NotFound } from '../NotFound/NotFound';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { getPostById } from '../../../redux/postsRedux';
+import { getPostById, updatePostsRequest } from '../../../redux/postsRedux';
 import { getUser } from '../../../redux/userRedux';
 
 import styles from './PostEdit.module.scss';
@@ -75,7 +75,7 @@ class Component extends React.Component {
     const { submitPost, updateInputValue, setImage } = this;
     const { postData } = this.state;
 
-    return ( 
+    return (
       user.id === post.userId ? (
         <div className={clsx(className, styles.root)}>
           <h2>PostEdit</h2>
@@ -199,11 +199,11 @@ class Component extends React.Component {
             </Form.Row>
             <Form.Group controlId="postStatus">
               <Form.Label>Status</Form.Label>
-              <Form.Control 
-                name="status" 
+              <Form.Control
+                name="status"
                 defaultValue={post.status}
-                readOnly 
-                type="text" 
+                readOnly
+                type="text"
               />
             </Form.Group>
             <Form.Group id="formGridImg">
@@ -227,11 +227,11 @@ const mapStateToProps = (state, props) => ({
   user: getUser(state),
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = dispatch => ({
+  editPost: (id, post) => dispatch(updatePostsRequest(id, post)),
+});
 
-const Container = connect(mapStateToProps)(Component);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   // Component as PostEdit,
