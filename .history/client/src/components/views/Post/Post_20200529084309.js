@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { getPostById } from '../../../redux/postsRedux.js.js';
-import { getUser } from '../../../redux/userRedux.js.js';
+import { getPostById } from '../../../redux/postsRedux.js';
+import { getUser } from '../../../redux/userRedux.js';
 import {GoogleMapComponent} from '../../common/GoogleMapComponent';
 
 import styles from './Post.module.scss';

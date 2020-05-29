@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 import { connect } from 'react-redux';
 import { getAll } from '../../../redux/postsRedux';
-import { getUser } from '../../../redux/userRedux.js.js';
+import { getUser } from '../../../redux/userRedux.js';
 
 import styles from './Homepage.module.scss';
 

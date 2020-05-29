@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NotFound } from '../NotFound/NotFound';
+import { NotFound } from '../../views/NotFound/NotFound';
 
 import clsx from 'clsx';
 

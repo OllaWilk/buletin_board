@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './PostAdd.module.scss';
 import clsx from 'clsx';
-import { NotFound } from '../NotFound/NotFound';
+import { NotFound } from '../../views/NotFound/NotFound';
 import randomID from '@ollawilk/randomid-generator';
 
 import { connect } from 'react-redux';
 import { addPost } from '../../../redux/postsRedux';
-import { getUser } from '../../../redux/userRedux.js.js';
+import { getUser } from '../../../redux/userRedux.js';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
