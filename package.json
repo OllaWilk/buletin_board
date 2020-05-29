@@ -1,0 +1,20 @@
+{
+  "name": "buletin_board",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:OllaWilk/buletin_board.git",
+  "author": "Aleksandra Wilk <oleksandra.wilk@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server.js",
+    "build": "cd client && yarn install && yarn build",
+    "server": "npx nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "mongodb": "^3.5.8",
+    "nodemon": "^2.0.4"
+  }
+}
