@@ -1,3 +1,6 @@
+import axios from 'axios';
+import { API_URL } from '../configs';
+
 /* selectors */
 export const getAll = ({ posts }) => posts.data;
 
@@ -12,17 +15,71 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 /* action types */
 const FETCH_START = createActionName('FETCH_START');
+const FETCH_END = createActionName('FETCH_END');
 const FETCH_SUCCESS = createActionName('FETCH_SUCCESS');
 const FETCH_ERROR = createActionName('FETCH_ERROR');
 const ADD_POST = createActionName('ADD_POST');
 
+const UPDATE_POST = createActionName('UPDATE_POST');
+
 /* action creators */
 export const fetchStarted = payload => ({ payload, type: FETCH_START });
+export const fetchEnd = payload => ({ payload, type: FETCH_END });
 export const fetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = payload => ({ payload, type: FETCH_ERROR });
+
 export const addPost = payload => ({ payload, type: ADD_POST });
+export const updatePost = payload => ({ payload, type: UPDATE_POST });
 
 /* thunk creators */
+
+export const loadPostsRequest = () => {
+  return async (dispatch, getState) => {
+    dispatch(fetchStarted());
+    try {
+      let res = await axios.get(
+        `${API_URL}/posts`
+      );
+      dispatch(fetchSuccess(res.data));
+      //dispatch(fetchEnd());
+    } catch(e) {
+      dispatch(fetchError(e.message));
+    }
+  };
+};
+
+export const updatePostsRequest = (id, data) => {
+  return async  (dispatch, getState) => {
+    dispatch(fetchStarted());
+    try {
+      let res = await axios.put(
+        `${API_URL}/posts/${id}`,
+        data,
+      );
+      dispatch(updatePost(res.data));
+      //dispatch(endRequest());
+    } catch(e) {
+      dispatch(fetchError(e.message || true ));
+    }
+  };
+};
+
+export const addPostsRequest = (data) => {
+  return async  (dispatch, getState) => {
+    dispatch(fetchStarted());
+    try {
+      let res = await axios.post(
+        `${API_URL}/posts`,
+        data,
+      );
+      dispatch(addPost(res.data));
+      //dispatch(endRequest());
+    } catch(e) {
+      dispatch(fetchError(e.message || true ));
+    }
+  };
+};
+
 
 /* reducer */
 export const reducer = (statePart = [], action = {}) => {
@@ -38,6 +95,17 @@ export const reducer = (statePart = [], action = {}) => {
         },
       };
     }
+    case FETCH_END: {
+      return {
+        ...statePart,
+        loading: {
+          active: false,
+          error: null,
+          success: true,
+        } ,
+      };
+    }
+
     case FETCH_SUCCESS: {
       return {
         ...statePart,
